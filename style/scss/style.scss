@@ -1,0 +1,81 @@
+ @font-face {
+     font-family: 'roboto';
+     src:url(../../font/Roboto-l.ttf);
+ }
+
+body{
+ display: flex;
+ justify-content : center;
+ height: 100vh;
+ align-items : center;
+ font-family: 'roboto';
+}
+
+
+a {
+	box-sizing: border-box; 
+	text-decoration: none;
+	background: none;
+	border: 0;
+	color: black;
+	font-size: 2em;
+	margin: 1em;
+	padding: 1em 2em;
+	text-align: center;
+	position: relative;
+	vertical-align: middle;
+	 font-family: 'roboto';
+	&::before, &::after{
+		box-sizing: border-box;
+		content: '';
+		position: absolute;
+		width: 100%;
+		height: 100%;
+	}
+}
+
+.swag {
+	transition: color 0.25s;
+
+	&::before,
+	&::after {
+		border: 2px solid transparent;
+		width: 0;
+		height: 0;
+	  }
+	&::before {
+		top: 0;
+		left: 0;
+	}
+	&::after {
+		bottom: 0;
+		right: 0;
+	}
+  
+	&:hover {
+		color: #00BAFF;
+	}
+
+	&:hover::before,
+	&:hover::after {
+		width: 100%;
+		height: 100%;
+	}
+
+	&:hover::before {
+		border-top-color: #00BAFF;
+		border-right-color: #00BAFF;
+		transition:
+		  width 0.25s ease-out,
+		  height 0.25s ease-out 0.25s; 
+	}
+
+	&:hover::after {
+		border-bottom-color: #00BAFF;
+		border-left-color: #00BAFF;
+		transition:
+		  border-color 0s ease-out 0.5s, 
+		  width 0.25s ease-out 0.5s, 
+		  height 0.25s ease-out 0.75s;
+	}
+}
